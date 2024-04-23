@@ -939,24 +939,6 @@ import sys
 #     area = area + min(list_to_right[ii], list_to_left[ii]) - height[ii]
 # print(area)
 #-----------------------------------------------------------------------------#
-# # question 45 跳跃游戏 II
-# # nums = [2,3,1,1,4]
-# # nums = [2,3,1]
-# # nums = [0]
-# nums = [4,1,1,3,1,1,1]
-
-# count = 0
-# index = len(nums)-1
-# while index > 0:
-#     temp = index
-#     for ii in range(index):
-#         if index - ii <= nums[ii]:
-#             temp = min(temp, ii)
-#             break
-#     count += 1
-#     index = temp
-# print(count)
-#-----------------------------------------------------------------------------#
 # # # question 48 旋转图像 已完成
 # matrix = [[1,2,3],[4,5,6],[7,8,9]]
 # # matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
@@ -1159,26 +1141,6 @@ import sys
 #     row_end = row_end - 1
 #     col_end = col_end - 1
 # print(matrix)
-#-----------------------------------------------------------------------------#
-# # question 55 跳跃游戏 已完成
-# # nums = [2,3,1,1,4]
-# # nums = [3,2,1,0,4]
-# nums = [0]
-
-# index = 0
-# current_max_step = 0
-# for ii in range(len(nums)):
-#     current_max_step = max(nums[ii], current_max_step)
-#     if current_max_step == 0:
-#         break
-#     else:
-#         current_max_step = current_max_step - 1
-
-# if ii == len(nums)-1:
-#     output = True
-# else:
-#     output = False
-# print(output)
 #-----------------------------------------------------------------------------#
 # # question 57 插入区间 已完成
 # # intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]]
