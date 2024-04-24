@@ -1,28 +1,6 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Fri Feb 19 03:06:16 2021
-
-@author: CC-i7-1065G7
-"""
 import sys
 
-
-#-----------------------------------------------------------------------------#
-# # question 4 寻找两个正序数组的中位数
-# # nums1 = [1,3]
-# # nums2 = [2]
-# nums1 = [1,2]
-# nums2 = [3,4] 
-
-# nums3 = nums1 + nums2
-# nums3.sort()
-
-# if len(nums3)%2 == 1:
-#     output = nums3[len(nums3)//2]
-# else:
-#     output = nums3[len(nums3)//2 -1]*0.5 + nums3[len(nums3)//2]*0.5
-# print(output)
-#-----------------------------------------------------------------------------#
 # print('647. 回文子串')
 # s = "abc"
 
@@ -53,32 +31,7 @@ import sys
 #             count += 1
 # print(count)
 #-----------------------------------------------------------------------------#
-# # question 6 Z字形变换 已完成
-# # s = "PAYPALISHIRING"
-# # numRows = 3
-# # s = "PAYPALISHIRING"
-# # numRows = 4
-# s = "AB"
-# numRows = 1
-# if numRows > 1:
-#     record = [[] for _ in range(numRows)]
-#     label = 0
-#     for ii in range(len(s)):
-#         if label == 0:
-#             delta = 1
-#         elif label == numRows-1:
-#             delta = -1
-        
-#         record[label].append(s[ii])
-#         label += delta
-#     output = ''
-#     for ii in range(len(record)):
-#         for jj in range(len(record[ii])):
-#             output = output + record[ii][jj]
-# elif numRows == 1:
-#     output = s
-# print(output)
-#-----------------------------------------------------------------------------#
+
 # # question 7 整数反转 已完成
 # x = 123
 # # x = -123
