@@ -1,25 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Mar 18 23:24:18 2021
-
-@author: CC-i7-8750H
-"""
-
-#-----------------------------------------------------------------------------#
-# question 11 盛最多水的容器(任意两根柱子围为的最大面积) 窗口滑动
-height = [1454,2249,4922,5151,7349,1022,2787,2931,7155,2802,2041,190]
-area = 0
-index_left = 0
-index_right = len(height)-1
-while index_left < index_right:
-    area_new = min(height[index_left],height[index_right])*(index_right-index_left)
-    area = max(area, area_new)
-    if height[index_left] <= height[index_right]:
-        index_left += 1
-    else:
-        index_right -= 1
-print(area)
-
 #-----------------------------------------------------------------------------#
 # # question 84 柱状图中最大的矩形 已完成
 heights = [6,7,5,5,2,4,5,9,3] 
@@ -106,7 +85,33 @@ for ii in range(1,len(nums)):
     dp[ii] = max(dp[ii-1]+nums[ii], nums[ii])
 print(max(dp))
 #-----------------------------------------------------------------------------#
-# question 300 最长递增子序列(递增，不连续，不改变相对顺序) #已笔记
+# question 300 最长递增子序列(递增，不连续，不改变相对顺序)
+nums = [10,9,2,5,3,7,101,18,4,8,6,12]
+# nums = [0,1,0,3,2,3]
+# nums = [7,7,7,7,7,7,7]
+# nums = [4,10,4,3,8,9]
+
+# 方法一：动态规划-时间复杂度 O(n^2)
+# dp[i]定义为以第i个数字结尾的最长上升子序列的长度
+dp = [1 for _ in range(len(nums))]
+for ii in range(1,len(nums)):
+    for jj in range(ii):
+        if nums[jj] < nums[ii]:
+            dp[ii] = max(dp[ii], dp[jj]+1)
+print(max(dp))
+
+# # 方法二：基于二分查找的动态规划-时间复杂度 O(nlogn)
+# record = [nums[0]]
+# for ii in range(1,len(nums)):
+#     # print(record) #查看更新过程
+#     if record[-1] >= nums[ii]:
+#         #如果nums[ii] <= record[-1]，则在record数组中二分查找，找到第一个比nums[ii]小的数record[index-1]，并跟新record[index]=nums[ii]
+#         index = bisect.bisect_left(record,nums[ii])
+#         record[index] = nums[ii]
+#     else:
+#         #如果nums[ii] > record[-1]，则直接加入到record数组末尾
+#         record.append(nums[ii])
+# print(len(record))
 
 # # question 354 俄罗斯套娃信封问题  300.最长递增子序列 的二维拓展
 # # envelopes =[[5,4],[6,4],[6,7],[2,3]]
@@ -216,7 +221,7 @@ k = 0
 # 如果 [jj,ii]闭区间内元素之和等于k，则pre[jj]一定等于pre[ii] - k
 # 由于 i_start 的取值范围为[0, ii]，只需要在前缀和pre[-1],pre[0],...,pre[ii-1]中查找pre[ii]-k出现的次数，即为所求
 # 利用dict_mp记录前缀和及出现的次数，dict_map[pre[ii]-k]即为所求
-pre = [] # 记录前缀和
+pre = [] # 记录包含第ii个元素的前缀和，即[0:ii]闭区间内nums元素之和
 dict_mp = {0:1} #记录前缀和pre[ii](key)，以及pre[ii]出现的次数(value)
 # 初始条件为pre[-1] = 0,即nums为空时，区间和 0 出现了1次，所以dict_mp = {0:1}
 count = 0 
@@ -231,6 +236,8 @@ for ii in range(len(nums)):
         count += dict_mp[pre[ii]-k] 
     
     # 由于上一步查找中不包含当前的前缀和pre[ii]，因此先执行查找，再往Hashmap中添加当前前缀和pre[ii]
+    # 先查找前缀和pre[-1],pre[0],...,pre[ii-1]等于pre[ii]-k的数量
+    # 由于查找时不包含当前的前缀和pre[ii]，因此在dict_mp中添加前缀和pre[ii]的操作，需要再查找之后执行
     if pre[ii] not in dict_mp:
         dict_mp[pre[ii]] = 1
     else:

@@ -1,43 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Mar 18 23:23:15 2021
 
-@author: CC-i7-8750H
-"""
-#字符与数字互转
-print(ord('a'))
-print(chr(97))
-print(ord('A'))
-print(chr(65))
-print(ord('狼'))
-print(chr(29436))
-
-# # question 5 最长回文子串 已完成 - 动态规划
-s = "babad"
-# s = "cbbd"
-# s = "a"
-# s = "ac"
-
-count = 1
-output = s[0]
-dp = [[True]*len(s) for _ in range(len(s))]
-# 对角线为一个元素，因此均为True
-# 下三角为虚拟变量，无实际含义
-# 例如dp[3][4] = dp[4][3] and s[3] == s[4]，dp[4][3]的初始值True，不影响该公式，
-# 即dp[3][4] = s[3] == s[4]
-for ii in range(len(s)-1,-1,-1): #因为dp[ii][jj]由下一行的dp[ii+1][jj-1]决定，因此采用逆序
-    for jj in range(ii+1,len(s)):
-        dp[ii][jj] = dp[ii+1][jj-1] and s[ii] == s[jj] #核心动态规划公式
-        #如果是回文更新记录，并输出结果
-        if dp[ii][jj] == True:
-            count_new = jj-ii+1
-            if count_new > count:
-                count = count_new
-                output = s[ii:jj] + s[jj]
-print(output)
-
-
-#-----------------------------------------------------------------------------#
 # # question 132 分割回文串 II 已完成
 # s = 'aab'
 # s = "eegiicgaeadbcfacfhifdbiehbgejcaeggcgbahfcajfhjjdgj"
