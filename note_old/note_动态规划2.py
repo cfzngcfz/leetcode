@@ -22,61 +22,7 @@ Created on Thu Mar 18 23:59:23 2021
 # leetcode 486 号算法题：预测赢家
 # leetcode 877 号算法题：石子游戏
 # 0-1 背包问题
-#-----------------------------------------------------------------------------#
-# # question 72 编辑距离 已完成 动态规划
 
-# # 动态规划 - 解题思路
-# # word1[i-1] vs word2[j-1]            word1[i-1] vs word2[j]
-# #     dp[i-1][j-1]                         dp[i-1][j]
-# #                            \                  |
-# #                             \                 |
-# #   if word1[i] != word2[j]    \                |
-# #      word1[i] 替换为word2[j]  \               |  word1 增加1
-# #   if word1[i] == word2[j]      \              |
-# #      不变                       \             |
-# #                                  *            *
-# # word1[i] vs word2[j-1]              word1[i] vs word2[j-1]
-# #      dp[i][j-1]        ----------->       dp[i][j]         
-# #                         word2 增加1
-# #                  等价于 word1 删除1
-
-# # word1 = "horse"
-# # word2 = "ros"
-
-# # # word1 = "intention"
-# # word1 = "entzntion"
-# # word2 = "execution"
-
-# # word1 = 'z'
-# # word2 = 'cda'
-
-# # word1 = 'ad'
-# # word2 = ''
-
-# # word1 = ''
-# # word2 = 'cda'
-
-# # word1 = ''
-# # word2 = ''
-
-# word1 = "dinitrophenylhydrazine"
-# word2 = "dimethylhydrazine"
-
-# if len(word1) > 0 and len(word2) > 0:
-#     dp = [[0]*(len(word2)+1) for _ in range(len(word1)+1)]
-#     for jj in range(len(word2)+1):
-#         dp[0][jj] = jj
-#     for ii in range(1,len(word1)+1):
-#         dp[ii][0] = ii
-#     for ii in range(1,len(word1)+1):
-#         for jj in range(1,len(word2)+1):
-#             if word1[ii-1] == word2[jj-1]:
-#                 dp[ii][jj] = min(dp[ii-1][jj]+1, dp[ii][jj-1]+1, dp[ii-1][jj-1])
-#             else:
-#                 dp[ii][jj] = 1 + min(dp[ii-1][jj], dp[ii][jj-1], dp[ii-1][jj-1])
-#     print(dp[-1][-1])
-# else:
-#     print(max(len(word1), len(word2)))
 #-----------------------------------------------------------------------------#
 # # 87. 扰乱字符串
 # s1 = "great"
