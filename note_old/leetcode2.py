@@ -274,24 +274,7 @@
 #     if check(word):
 #         output2.append(word)
 # print(output2)
-#-----------------------------------------------------------------------------#
-# # question 80 删除排序数组中的重复项II 已完成
-# # nums = [1,1,1,2,2,3]
-# nums = [0,0,1,1,1,1,2,3,3]
 
-# record = []
-# temp = 1
-# len_nums = len(nums)
-# for ii in range(len_nums):
-#     if nums[len_nums-1-ii] not in record:
-#         record.append(nums[len_nums-1-ii])
-#         temp = 1
-#     else:
-#         temp += 1
-#         if temp > 2:
-#             del(nums[len_nums-1-ii])
-# print(len(nums))
-# print(nums)
 #-----------------------------------------------------------------------------#
 # # question 84 柱状图中最大的矩形 已完成
 # # heights = [2,1,5,6,2,3]
@@ -488,21 +471,7 @@
 #         if self.isScramble(s1[:i],s2[-i:]) and self.isScramble(s1[i:],s2[:-i]):
 #             return True
 #     return False
-#-----------------------------------------------------------------------------#
-# # question 88 合并两个有序数组 已完成
-# # nums1 = [1,2,3,0,0,0]
-# # m = 3
-# # nums2 = [2,5,6]
-# # n = 3
-# nums1 = [1]
-# m = 1
-# nums2 = []
-# n = 0
 
-# for ii in range(n):
-#     nums1[m+ii] = nums2[ii]
-# nums1.sort()
-# print(nums1)
 #-----------------------------------------------------------------------------#
 # # question 89 格雷编码 已完成
 # n = 4
